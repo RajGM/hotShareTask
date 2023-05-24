@@ -78,6 +78,7 @@ const Search = () => {
             text-sm 
             font-semibold 
             px-6
+            text-black	
           "
         >
           {locationLabel}
@@ -92,6 +93,7 @@ const Search = () => {
             border-x-[1px] 
             flex-1 
             text-center
+            text-black	
           "
         >
           {durationLabel}
@@ -106,6 +108,7 @@ const Search = () => {
             flex-row 
             items-center 
             gap-3
+            text-black	
           "
         >
           <div className="hidden sm:block">{guestLabel}</div>

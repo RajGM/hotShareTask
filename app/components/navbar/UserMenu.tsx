@@ -58,6 +58,7 @@ const UserMenu = (
             hover:bg-neutral-100 
             transition 
             cursor-pointer
+            text-black	
           "
         >
           Airbnb your home
@@ -78,6 +79,7 @@ const UserMenu = (
           cursor-pointer 
           hover:shadow-md 
           transition
+          text-black	
           "
         >
           <AiOutlineMenu />
@@ -101,7 +103,7 @@ const UserMenu = (
             text-sm
           "
         >
-          <div className="flex flex-col cursor-pointer">
+          <div className="flex flex-col cursor-pointer text-black	">
             {currentUser ? (
               <>
                 <MenuItem 
