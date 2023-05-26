@@ -133,6 +133,7 @@ const Modal = (
                 justify-center
                 relative
                 border-b-[1px]
+                bg-black	
                 "
               >
                 <button
@@ -142,8 +143,7 @@ const Modal = (
                     hover:opacity-70
                     transition
                     absolute
-                    left-9
-                    bg-black	
+                    left-9	
                   "
                   onClick={handleClose}
                 >
@@ -154,7 +154,7 @@ const Modal = (
                 </div>
               </div>
               {/*body*/}
-              <div className="relative p-6 flex-auto">
+              <div className="relative p-6 flex-auto text-black	">
                 {body}
               </div>
               {/*footer*/}

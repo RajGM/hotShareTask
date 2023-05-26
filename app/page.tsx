@@ -9,7 +9,7 @@ import ClientOnly from "./components/ClientOnly";
 import { useState,useEffect } from "react";
 const axios = require("axios");
 
-import GetListings from '@/app/actions/getListings';
+import {testData} from '@/app/actions/getListings';
 
 export interface HomeProps {
   userId?: string;
@@ -23,19 +23,8 @@ export interface HomeProps {
 }
 
 export default function Home({ searchParams }: HomeProps) {
-  //do useEffect here and get it done MAN!!!
-  const [listing, setListing] = useState([]);
-
-  useEffect(() => {
-    const fetchListings = async () => {
-      const listings = await GetListings();
-      setListing(listings);
-    };
   
-    fetchListings();
-  }, []);
-  
-  if (listing.length === 0) {
+  if (testData.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -59,7 +48,7 @@ export default function Home({ searchParams }: HomeProps) {
             gap-8
           "
         >
-          {listing.data.map((listing: any) => (
+          {testData.map((listing: any) => (
             <ListingCard currentUser={null} key={listing.id} data={listing} />
           ))}
         </div>

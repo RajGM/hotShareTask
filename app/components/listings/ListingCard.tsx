@@ -37,6 +37,8 @@ const ListingCard = (
     currentUser
   }: ListingCardProps
 ) => {
+
+  console.log("LISTINGCARD:",data);
   const router = useRouter();
   const { getByValue } = useCountries();
 
@@ -96,7 +98,7 @@ const ListingCard = (
               group-hover:scale-110 
               transition
             "
-            src={data.mainImage.url}
+            src={data.info.mainImage.url}
             alt="Listing"
           />
           <div className="
@@ -111,7 +113,7 @@ const ListingCard = (
           </div>
         </div>
         <div className="font-semibold text-lg">
-          {data.location.country.code}, {data.location.country.code}
+          {data.info.location.country.code}, {data.info.location.country.code}
         </div>
         <div className="font-light text-neutral-500">
           {data.info.type}
