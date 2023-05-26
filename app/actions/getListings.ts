@@ -1,101 +1,33 @@
-import prisma from "@/app/libs/prismadb";
-const fs = require('fs');
-const jsonData = fs.readFileSync('../../data.json', 'utf8');
-const data = JSON.parse(jsonData);
+import axios from "axios";
+import { useEffect } from "react";
 
-export interface IListingsParams {
-  userId?: string;
-  guestCount?: number;
-  roomCount?: number;
-  bathroomCount?: number;
-  startDate?: string;
-  endDate?: string;
-  locationValue?: string;
-  category?: string;
-}
+async function GetListings() {
+  const [listing, setListing] = useEffect([]);
+  let globalData = null;
 
-console.log(data);
+  const url =
+    "https://file.notion.so/f/s/24643894-e5c3-4c40-974a-52594f581e03/listings.json?id=f795dab6-14d4-48a9-9567-c72151d311a2&table=block&spaceId=f2ea7328-64a4-4f18-bacc-df6c9ac3d888&expirationTimestamp=1685033716282&signature=vywDncpg5n0u37h-IPX60nOPUA8d6AeZFF8BEkKNSdA&downloadName=listings.json";
 
-export default async function getListings(
-  params: IListingsParams
-) {
-  try {
-    const {
-      userId,
-      roomCount, 
-      guestCount, 
-      bathroomCount, 
-      locationValue,
-      startDate,
-      endDate,
-      category,
-    } = params;
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    let query: any = {};
-
-    if (userId) {
-      query.userId = userId;
+  async function fetchData() {
+    try {
+      const response = await axios.get(url);
+      console.log(response.data.data);
+      setListing(response.data.data);
+      return response.data.data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return error;
+      //return null; // or handle the error in an appropriate way
     }
-
-    if (category) {
-      query.category = category;
-    }
-
-    if (roomCount) {
-      query.roomCount = {
-        gte: +roomCount
-      }
-    }
-
-    if (guestCount) {
-      query.guestCount = {
-        gte: +guestCount
-      }
-    }
-
-    if (bathroomCount) {
-      query.bathroomCount = {
-        gte: +bathroomCount
-      }
-    }
-
-    if (locationValue) {
-      query.locationValue = locationValue;
-    }
-
-    if (startDate && endDate) {
-      query.NOT = {
-        reservations: {
-          some: {
-            OR: [
-              {
-                endDate: { gte: startDate },
-                startDate: { lte: startDate }
-              },
-              {
-                startDate: { lte: endDate },
-                endDate: { gte: endDate }
-              }
-            ]
-          }
-        }
-      }
-    }
-
-    const listings = await prisma.listing.findMany({
-      where: {
-        query,
-        equals: jsonData,
-      }
-    });
-
-    const safeListings = listings.map((listing) => ({
-      ...listing,
-      createdAt: listing.createdAt.toISOString(),
-    }));
-
-    return safeListings;
-  } catch (error: any) {
-    throw new Error(error);
   }
+
+  const returnData = await fetchData();
+
+  return listing;
 }
+
+export default GetListings;

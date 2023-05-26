@@ -1,56 +1,41 @@
+"use client";
 import "./globals.css";
 
 import Container from "@/app/components/Container";
 import ListingCard from "@/app/components/listings/ListingCard";
 import EmptyState from "@/app/components/EmptyState";
 
-import getListings, { IListingsParams } from "@/app/actions/getListings";
-interface HomeProps {
-  searchParams: IListingsParams;
-}
-// import getCurrentUser from "@/app/actions/getCurrentUser";
-
-import axios from "axios";
-
-let globalData = null;
-
-const url =
-  "https://file.notion.so/f/s/24643894-e5c3-4c40-974a-52594f581e03/listings.json?id=f795dab6-14d4-48a9-9567-c72151d311a2&table=block&spaceId=f2ea7328-64a4-4f18-bacc-df6c9ac3d888&expirationTimestamp=1685033716282&signature=vywDncpg5n0u37h-IPX60nOPUA8d6AeZFF8BEkKNSdA&downloadName=listings.json";
-
-async function fetchData() {
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return null; // or handle the error in an appropriate way
-  }
-}
-
-async function getData() {
-  try {
-    const jsonData = await fetchData();
-    if (jsonData) {
-      // Copy the jsonData to some variable or perform further operations
-      const copiedData = jsonData.data[0];
-      console.log(copiedData);
-      globalData = jsonData.data;
-    }
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
-getData();
-
 import ClientOnly from "./components/ClientOnly";
+import { useState,useEffect } from "react";
+const axios = require("axios");
 
-export default function Home() {
+import GetListings from '@/app/actions/getListings';
+
+export interface HomeProps {
+  userId?: string;
+  guestCount?: number;
+  roomCount?: number;
+  bathroomCount?: number;
+  startDate?: string;
+  endDate?: string;
+  locationValue?: string;
+  category?: string;
+}
+
+export default function Home({ searchParams }: HomeProps) {
+  //do useEffect here and get it done MAN!!!
+  const [listing, setListing] = useState([]);
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      const listings = await GetListings();
+      setListing(listings);
+    };
   
-  const listings = globalData; //await getListings(null);
-  const currentUser = null;
-
-  if (listings.length === 0) {
+    fetchListings();
+  }, []);
+  
+  if (listing.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -74,12 +59,8 @@ export default function Home() {
             gap-8
           "
         >
-          {listings.data.map((listing: any) => (
-            <ListingCard
-              currentUser={currentUser}
-              key={listing.id}
-              data={listing}
-            />
+          {listing.data.map((listing: any) => (
+            <ListingCard currentUser={null} key={listing.id} data={listing} />
           ))}
         </div>
       </Container>
