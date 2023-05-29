@@ -22,8 +22,8 @@ export interface HomeProps {
   category?: string;
 }
 
-export default function Home({ searchParams }: HomeProps) {
-  
+export default function Home({ searchParams }: any) {
+  console.log(searchParams);
   if (roomList.length === 0) {
     return (
       <ClientOnly>
