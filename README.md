@@ -1,13 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-<img src="./screenshots/homepage.png" width=400 height=200 > ![](./screenshots/homepage.png)
+<img src="./screenshots/homepage.jpg" width=400 height=200 > ![](./screenshots/homepage.jpg)
 
-![HomePage](/screenshots/homepage.png)
-![HomePageResponsive](./screenshots/homepager.png)
-![ListingPage](./screenshots/list.png)
-![Search1](./screenshots/search.png)
-![Search2](./screenshots/search1.png)
-![Search3](./screenshots/search2.png)
+![HomePage](/screenshots/homepage.jpg)
+![HomePageResponsive](./screenshots/homepager.jpg)
+![ListingPage](./screenshots/list.jpg)
+![Search1](./screenshots/search.jpg)
+![Search2](./screenshots/search1.jpg)
+![Search3](./screenshots/search2.jpg)
 
 ## Getting Started
 
