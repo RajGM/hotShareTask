@@ -8,6 +8,12 @@ const nextConfig = {
               port: '',
               pathname: '/im/pictures/miso/**',
             },
+            {
+              protocol: 'https',
+              hostname: 'a0.muscache.com',
+              port: '',
+              pathname: '/im/pictures/**',
+            },
           ],
     }
 }

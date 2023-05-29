@@ -32,7 +32,7 @@ async function GetListings() {
 
 export default GetListings;
 
-export const testData = [{
+const obj1 = {
   "ref": "https://www.airbnb.com/rooms/812847092697581949",
   "info": {
     "type": "home",
@@ -589,4 +589,6 @@ export const testData = [{
       "count": 0
     }
   }
-}];
+};
+
+export const testData = [obj1,obj1,obj1,obj1,obj1];

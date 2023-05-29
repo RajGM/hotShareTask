@@ -10,6 +10,7 @@ import { useState,useEffect } from "react";
 const axios = require("axios");
 
 import {testData} from '@/app/actions/getListings';
+import {roomList} from '@/app/actions/localData'
 
 export interface HomeProps {
   userId?: string;
@@ -24,7 +25,7 @@ export interface HomeProps {
 
 export default function Home({ searchParams }: HomeProps) {
   
-  if (testData.length === 0) {
+  if (roomList.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -48,7 +49,7 @@ export default function Home({ searchParams }: HomeProps) {
             gap-8
           "
         >
-          {testData.map((listing: any) => (
+          {roomList.map((listing: any) => (
             <ListingCard currentUser={null} key={listing.id} data={listing} />
           ))}
         </div>
