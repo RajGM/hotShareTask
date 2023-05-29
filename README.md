@@ -1,7 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-<img src="./screenshots/homepage.jpg" width=400 height=200 > ![](./screenshots/homepage.jpg)
-
 ![HomePage](/screenshots/homepage.jpg)
 ![HomePageResponsive](./screenshots/homepager.jpg)
 ![ListingPage](./screenshots/list.jpg)
