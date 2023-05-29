@@ -9,7 +9,6 @@ import ClientOnly from "./components/ClientOnly";
 import { useState,useEffect } from "react";
 const axios = require("axios");
 
-import {testData} from '@/app/actions/getListings';
 import {roomList} from '@/app/actions/localData'
 
 export interface HomeProps {

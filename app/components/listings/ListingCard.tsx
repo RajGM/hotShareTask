@@ -38,7 +38,6 @@ const ListingCard = (
   }: ListingCardProps
 ) => {
 
-  console.log("LISTINGCARD:",data);
   const router = useRouter();
   const { getByValue } = useCountries();
 
@@ -74,9 +73,13 @@ const ListingCard = (
     return `${format(start, 'PP')} - ${format(end, 'PP')}`;
   }, [reservation]);
 
+//console.log(data.info.id)
+//router.push(`/listings/${data.info.id}`)
+//router.push(`/listings/1234`)
+
   return (
     <div 
-      onClick={() => router.push(`/listings/${data.id}`)} 
+      onClick={() => router.push(`/listings/${data.info.id}`) } 
       className="col-span-1 cursor-pointer group"
     >
       <div className="flex flex-col gap-2 w-full text-black">
