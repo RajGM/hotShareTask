@@ -1,11 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![HomePage](screenshots/HomePage.png)
-![Kiku](screenshots/HomePage1.png)
-![Kiku](screenshots/listing1.png)
-![Kiku](screenshots/search1.png)
-![Kiku](screenshots/search2.png)
-![Kiku](screenshots/search3.png)
+![HomePage](./screenshots/HomePage.png)
+![HomePageResponsive](./screenshots/HomePage1.png)
+![ListingPage](./screenshots/listing1.png)
+![Search1](./screenshots/search1.png)
+![Search2](./screenshots/search2.png)
+![Search3](./screenshots/search3.png)
 
 ## Getting Started
 
