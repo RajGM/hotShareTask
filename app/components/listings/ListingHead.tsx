@@ -11,7 +11,7 @@ import HeartButton from "../HeartButton";
 interface ListingHeadProps {
   title: string | any;
   locationValue: string;
-  imageSrc: string;
+  imageSrc: string | any;
   id: string;
   currentUser?: SafeUser | null
 }
@@ -32,7 +32,7 @@ const ListingHead = (
   return ( 
     <>
       <Heading
-        title={title}
+        title={title.info.title}
         subtitle={`${location?.region}, ${location?.label}`}
       />
       <div className="
@@ -44,7 +44,7 @@ const ListingHead = (
         "
       >
         <Image
-          src={imageSrc}
+          src={imageSrc.info.mainImage.url}
           fill
           className="object-cover w-full"
           alt="Image"

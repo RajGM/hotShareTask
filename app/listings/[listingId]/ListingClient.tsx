@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import axios from "axios";
@@ -125,8 +126,8 @@ const ListingClient = (
       >
         <div className="flex flex-col gap-6">
           <ListingHead
-            title={listing.info.title}
-            imageSrc={listing.info.mainImage.url}
+            title={listing}
+            imageSrc={listing}
             locationValue={listing.info.location.country.code}
             id={listing.info.id}
           />

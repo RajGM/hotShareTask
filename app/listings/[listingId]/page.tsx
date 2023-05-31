@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 //import getCurrentUser from "@/app/actions/getCurrentUser";
 import getListingById from "@/app/actions/localData";
 //import getReservations from "@/app/actions/getReservations";
