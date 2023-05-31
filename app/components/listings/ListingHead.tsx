@@ -9,7 +9,7 @@ import Heading from "../Heading";
 import HeartButton from "../HeartButton";
 
 interface ListingHeadProps {
-  title: string;
+  title: string | any;
   locationValue: string;
   imageSrc: string;
   id: string;

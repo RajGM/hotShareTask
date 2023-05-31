@@ -17,7 +17,7 @@ import Button from "../Button";
 import ClientOnly from "../ClientOnly";
 
 interface ListingCardProps {
-  data: SafeListing;
+  data: SafeListing | any;
   reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
